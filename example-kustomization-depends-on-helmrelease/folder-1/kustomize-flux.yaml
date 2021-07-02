@@ -1,0 +1,14 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: folder-1
+  namespace: flux-system
+spec:
+  prune: true
+  interval: 10m
+  dependsOn:
+  - name: folder-2
+  path: example/folder-1/raw-yaml/
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
